@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4C6FFF;
+  --color-background: #080713;
+}
+
+
+body {
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+
+h1 {
+    font-family: "Krona One", sans-serif;
+  font-weight: 700;
+}
+
+
+h2 {
+    font-family: "Krona One", sans-serif;
+  font-weight: 800;
+}
+
+
