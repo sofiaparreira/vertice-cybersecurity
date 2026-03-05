@@ -123,17 +123,17 @@ export default function HomePage() {
       <main
         className={`transition-opacity duration-700 `}
       >
-        <section id="home" className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+        <section id="home" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-6">
           <GridBackground />
 
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div
-              className="w-[600px] h-[600px] rounded-full opacity-10 blur-3xl"
+              className="w-[360px] h-[360px] sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] rounded-full opacity-10 blur-3xl"
               style={{ background: "radial-gradient(circle, var(--primary), transparent 70%)" }}
             />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto space-y-6">
+          <div className="relative z-10 flex flex-col items-center text-center px-2 sm:px-6 max-w-4xl mx-auto space-y-5 sm:space-y-6 pt-20 md:pt-0">
 
             <div className="flex gap-2 items-center border border-white/15 rounded-full px-4 py-1 bg-white/8 backdrop-blur-sm text-sm text-white/70 tracking-widest uppercase">
               <span>VÉRTICE DIGITAL</span>
@@ -141,7 +141,7 @@ export default function HomePage() {
               <span>CyberSegurança</span>
             </div>
 
-            <h1 className="text-6xl md:text-7xl font-bold  text-[var(--primary)] leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[var(--primary)] leading-tight tracking-tight">
               Segurança Digital
               <br />
               <span className="text-white bg-clip-text" >
@@ -149,11 +149,11 @@ export default function HomePage() {
               </span>
             </h1>
 
-            <p className="text-white/50 text-lg max-w-xl leading-relaxed">
+            <p className="text-white/50 text-base sm:text-lg max-w-xl leading-relaxed">
               Protegemos sua empresa contra ameaças que outros não conseguem detectar — com inteligência, precisão e resposta em tempo real.
             </p>
 
-            <div className="flex gap-4 items-center justify-center pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center pt-4 w-full sm:w-auto">
               <Link to='#quem-somos' className="bg-[var(--primary)] py-2.5 rounded-lg px-6 text-white font-medium hover:opacity-90 transition-opacity cursor-pointer">
                 Saiba mais
               </Link>
@@ -180,12 +180,12 @@ export default function HomePage() {
         <div className="
           relative z-10
           bg-[#080713]
-          rounded-t-[80px]
+          rounded-t-[40px] sm:rounded-t-[60px] md:rounded-t-[80px]
           py-8
           h-full
           shadow-[0_-50px_100px_rgba(5,4,7,0.85)]
         ">
-          <section className="flex gap-32 py-16 w-full justify-center border-b border-white/10">
+          <section className="flex flex-wrap gap-8 sm:gap-16 lg:gap-32 py-12 sm:py-16 px-4 sm:px-6 w-full justify-center border-b border-white/10">
             {[
               { end: 99.9, suffix: "%", decimals: 1, label: "Uptime garantido", animated: true },
               { end: 500, prefix: "+", label: "Empresas protegidas", animated: true },
@@ -212,8 +212,8 @@ export default function HomePage() {
             <ServiceContainer />
           </section>
 
-          <section id="quem-somos" className="min-h-screen flex items-center bg-[#111024] mt-28">
-            <div className="w-full max-w-[1400px] mx-auto py-20">
+          <section id="quem-somos" className="min-h-screen flex items-center bg-[#111024] mt-20 sm:mt-28 px-4 sm:px-6">
+            <div className="w-full max-w-[1400px] mx-auto py-12 sm:py-20">
               <div className="flex flex-col lg:flex-row items-end gap-6 lg:gap-10 border-b border-gray-200/20 pb-12 mb-12">
                 <div className="flex-1 flex flex-col gap-0">
                   <h2
@@ -253,7 +253,7 @@ export default function HomePage() {
               {/* Bottom area: Description + Stats */}
               <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
                 {/* Description */}
-                <div className="flex-1 max-w-2xl border-r border-gray-200/20 pr-10">
+                <div className="flex-1 max-w-2xl lg:border-r border-gray-200/20 lg:pr-10">
                   <p className="text-muted-foreground leading-relaxed mb-5">
                     A Vértice Cybersegurança nasceu da convicção de que segurança digital não é um diferencial — é sobrevivência estratégica. Em um cenário onde ataques evoluem todos os dias, nós operamos no ponto mais crítico da tecnologia: o vértice entre proteção, inteligência e resposta.
                   </p>
@@ -320,19 +320,19 @@ export default function HomePage() {
         <section id="nossa-jornada">
           <TimelineSection />
         </section>
-       <section id="contato" className="py-20 bg-[#111024]">
-  <div className="max-w-[1400px] mx-auto flex gap-8 justify-between items-center">
-    <div className="px-8 w-1/2">
-      <h2 className="text-4xl font-bold text-white">ENTRE EM CONTATO</h2>
+       <section id="contato" className="py-12 sm:py-20 bg-[#111024] px-4 sm:px-6">
+  <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-8 justify-between items-center">
+    <div className="px-0 sm:px-2 lg:px-8 w-full lg:w-1/2">
+      <h2 className="text-3xl sm:text-4xl font-bold text-white">ENTRE EM CONTATO</h2>
       <p className="max-w-lg mt-1 text-gray-100/90">
         Preencha as informações do formulário para fazer um orçamento ou tirar suas dúvidas e em breve faremos retorno.
       </p>
-      <img className="w-88 mt-16" src="./contact-ilustration.svg" alt="Ilustração de contato" />
+      <img className="w-full max-w-sm sm:max-w-md mt-10 sm:mt-16" src="./contact-ilustration.svg" alt="Ilustração de contato" />
     </div>
 
     <form
       onSubmit={handleSubmit}
-      className="w-1/2 min-h-[420px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+      className="w-full lg:w-1/2 min-h-[420px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 sm:p-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
     >
       <div className="flex flex-col gap-4">
         {/* Name */}

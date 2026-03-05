@@ -36,15 +36,16 @@ export default function TimelineSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#080713]">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#080713] px-4 sm:px-6">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-8">Nossa Jornada</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">Nossa Jornada</h2>
 
         <div className="relative">
           {/* Linha vertical central */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/10" />
+          <div className="absolute hidden lg:block left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/10" />
+          <div className="absolute lg:hidden left-2 top-0 bottom-0 w-[2px] bg-white/10" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             {events.map((ev, idx) => {
               const side = idx % 2 === 0 ? "left" : "right";
               return (
@@ -54,12 +55,12 @@ export default function TimelineSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.6, delay: idx * 0.08 }}
-                  className={`relative w-full flex ${side === "left" ? "justify-start" : "justify-end"}`}
+                  className={`relative w-full flex ${side === "left" ? "lg:justify-start" : "lg:justify-end"} justify-start`}
                 >
                   <div className="w-full lg:w-1/2">
-                    <div className={`flex ${side === "left" ? "pl-6 lg:pl-12" : "pr-6 lg:pr-12"} items-start`}>
+                    <div className={`flex items-start ${side === "left" ? "pl-8 lg:pl-12" : "pl-8 lg:pl-0 lg:pr-12"}`}>
                       {/* Content card */}
-                      <div className={`bg-white/4 border border-white/6 rounded-xl p-5 shadow-sm ${side === "left" ? "text-left" : "text-right"} w-full`}>
+                      <div className={`bg-white/4 border border-white/6 rounded-xl p-4 sm:p-5 shadow-sm w-full text-left lg:${side === "left" ? "text-left" : "text-right"}`}>
                         <div className="flex items-center gap-3 mb-2 justify-between">
                           <span className="text-sm uppercase text-white/60 tracking-widest">{ev.year}</span>
                           <span className="text-xs text-white/40 hidden lg:inline">{idx + 1}</span>
@@ -71,7 +72,7 @@ export default function TimelineSection() {
                   </div>
 
                   {/* Marker */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+                  <div className="absolute left-2 lg:left-1/2 lg:-translate-x-1/2 top-1/2 -translate-y-1/2">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
