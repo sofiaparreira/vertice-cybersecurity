@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 @theme {
   --color-primary: #4C6FFF;
@@ -11,17 +12,24 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
+  font-family: "Manrope", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 
 h1 {
-    font-family: "Krona One", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 700;
 }
 
 
 h2 {
-    font-family: "Krona One", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-weight: 800;
 }
 

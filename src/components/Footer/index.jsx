@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         
 <footer id="contato" className="bg-zinc-900 border-t border-zinc-800 py-12 sm:py-16 px-4 sm:px-6">
-  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-10 sm:gap-12">
+  <div className="max-w-5xl mx-auto flex flex-col lg:flex-row justify-between gap-10 sm:gap-12">
 
     {/* Branding */}
     <div className="space-y-4 sm:space-y-6 col-span-2">
@@ -24,17 +24,17 @@ const Footer = () => {
           Navegação
         </h3>
         <ul className="mt-6 space-y-3 text-sm text-zinc-400">
-          <li className="hover:text-[var(--primary)] transition cursor-pointer">
-            Início
+          <li>
+            <a href="#home" className="hover:text-[var(--primary)] transition">Início</a>
           </li>
-          <li className="hover:text-[var(--primary)] transition cursor-pointer">
-            Serviços
+          <li>
+            <a href="#service-container" className="hover:text-[var(--primary)] transition">Serviços</a>
           </li>
-          <li className="hover:text-[var(--primary)] transition cursor-pointer">
-            Quem Somos
+          <li>
+            <a href="#quem-somos" className="hover:text-[var(--primary)] transition">Quem Somos</a>
           </li>
-          <li className="hover:text-[var(--primary)] transition cursor-pointer">
-            Contato
+          <li>
+            <a href="#contato" className="hover:text-[var(--primary)] transition">Contato</a>
           </li>
         </ul>
       </div>
@@ -44,10 +44,12 @@ const Footer = () => {
           Contato
         </h3>
         <ul className="mt-6 space-y-3 text-sm text-zinc-400">
-          <li>contato@verticecybersecurity.com</li>
+          <li>
+            <a href="mailto:contato@verticecybersecurity.com" className="hover:text-white transition">contato@verticecybersecurity.com</a>
+          </li>
           <li>Belo Horizonte - MG</li>
-          <li className="hover:text-[var(--primary)] transition cursor-pointer">
-            Política de Privacidade
+          <li>
+            <a href="#" className="hover:text-[var(--primary)] transition">Política de Privacidade</a>
           </li>
         </ul>
       </div>
@@ -56,7 +58,7 @@ const Footer = () => {
   </div>
 
   {/* Linha inferior */}
-  <div className="mt-10 sm:mt-16 border-t border-zinc-800 pt-6 sm:pt-8 text-center text-xs text-zinc-500">
+  <div className="max-w-5xl mx-auto mt-10 sm:mt-16 border-t border-zinc-800 pt-6 sm:pt-8 text-center text-xs text-zinc-500">
     © {new Date().getFullYear()} Vértice Todos os direitos reservados.
   </div>
 </footer>

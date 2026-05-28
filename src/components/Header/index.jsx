@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import PrimaryButton from "../PrimaryButton"
 import { ArrowRightIcon } from "../../../public/icons/ArrowRightIcon"
@@ -16,8 +16,59 @@ const tabs = [
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const location = useLocation()
-  const activeHash = location.hash || "#home"
+  const [activeHash, setActiveHash] = useState(() => window.location.hash || "#home")
+
+  useEffect(() => {
+    const syncActiveHash = () => {
+      setActiveHash(window.location.hash || "#home")
+    }
+
+    window.addEventListener("hashchange", syncActiveHash)
+    window.addEventListener("popstate", syncActiveHash)
+
+    return () => {
+      window.removeEventListener("hashchange", syncActiveHash)
+      window.removeEventListener("popstate", syncActiveHash)
+    }
+  }, [])
+
+  useEffect(() => {
+    const sectionHashes = tabs.map((tab) => tab.link)
+
+    const updateActiveSectionByScroll = () => {
+      const scrollPosition = window.scrollY + 140
+      let currentHash = "#home"
+
+      for (const hash of sectionHashes) {
+        const section = document.querySelector(hash)
+        if (section && section.offsetTop <= scrollPosition) {
+          currentHash = hash
+        }
+      }
+
+      setActiveHash((previous) => (previous === currentHash ? previous : currentHash))
+    }
+
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+
+      ticking = true
+      window.requestAnimationFrame(() => {
+        updateActiveSectionByScroll()
+        ticking = false
+      })
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onScroll)
+    updateActiveSectionByScroll()
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
+  }, [])
 
   const scrollToSection = (hash) => {
     const section = document.querySelector(hash)
@@ -25,6 +76,7 @@ export function Header() {
 
     section.scrollIntoView({ behavior: "smooth", block: "start" })
     window.history.replaceState(null, "", hash)
+    setActiveHash(hash)
     setIsMenuOpen(false)
   }
 

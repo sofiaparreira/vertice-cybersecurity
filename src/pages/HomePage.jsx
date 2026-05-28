@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import { animate, useInView, useMotionValue } from "framer-motion";
+import { animate, motion, useInView, useMotionValue } from "framer-motion";
 import { ArrowRightIcon } from "../../public/icons/ArrowRightIcon";
 import GridBackground from "../components/GridBackground";
 import PrimaryButton from "../components/PrimaryButton";
@@ -43,6 +43,95 @@ function AnimatedStatValue({ end, prefix = "", suffix = "", decimals = 0, durati
       {formattedValue}
       {suffix}
     </span>
+  );
+}
+
+function CyberSecurityGraphic() {
+  return (
+    <div className="relative h-[280px] lg:h-[300px] w-full">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 22% 26%, rgba(34, 211, 238, 0.26), transparent 44%), radial-gradient(circle at 78% 72%, rgba(59, 130, 246, 0.24), transparent 42%), radial-gradient(circle at 50% 50%, rgba(16, 24, 53, 0.6), transparent 72%), repeating-linear-gradient(0deg, rgba(34, 211, 238, 0.08) 0 1px, transparent 1px 26px), repeating-linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0 1px, transparent 1px 26px)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 72% at 50% 50%, black 42%, rgba(0,0,0,0.9) 62%, transparent 100%)",
+          maskImage: "radial-gradient(ellipse 80% 72% at 50% 50%, black 42%, rgba(0,0,0,0.9) 62%, transparent 100%)",
+        }}
+      />
+
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 50% 50%, rgba(125,211,252,0.12), transparent 58%)", filter: "blur(12px)" }} />
+
+      <div className="relative h-full w-full">
+        <svg viewBox="0 0 400 280" className="absolute inset-0 h-full w-full" role="img" aria-label="Ilustracao animada de ciberseguranca">
+          <motion.circle
+            cx="200"
+            cy="140"
+            r="95"
+            fill="none"
+            stroke="rgba(148,163,184,0.22)"
+            strokeWidth="1.6"
+            strokeDasharray="6 10"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: "200px 140px" }}
+          />
+
+          <motion.circle
+            cx="200"
+            cy="140"
+            r="68"
+            fill="none"
+            stroke="rgba(56,189,248,0.42)"
+            strokeWidth="1.4"
+            animate={{ opacity: [0.25, 0.75, 0.25], scale: [0.98, 1.04, 0.98] }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+            style={{ transformOrigin: "200px 140px" }}
+          />
+
+          <motion.g
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <path
+              d="M200 72c-23 13-40 15-56 18v47c0 42 29 68 56 82 27-14 56-40 56-82V90c-16-3-33-5-56-18Z"
+              fill="rgba(10,18,40,0.7)"
+              stroke="rgba(125,211,252,0.85)"
+              strokeWidth="2"
+            />
+            <rect x="180" y="118" width="40" height="30" rx="7" fill="rgba(56,189,248,0.2)" stroke="rgba(125,211,252,0.65)" strokeWidth="1.4" />
+            <path d="M188 118v-8a12 12 0 0 1 24 0v8" fill="none" stroke="rgba(125,211,252,0.75)" strokeWidth="1.4" />
+            <motion.circle
+              cx="200"
+              cy="133"
+              r="3"
+              fill="#7dd3fc"
+              animate={{ opacity: [0.35, 1, 0.35] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.g>
+
+          <motion.path
+            d="M73 214c22-17 47-28 75-31m179 31c-22-17-47-28-75-31"
+            fill="none"
+            stroke="rgba(148,163,184,0.36)"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            animate={{ opacity: [0.2, 0.7, 0.2] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <motion.g
+            animate={{ opacity: [0.45, 1, 0.45] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <circle cx="92" cy="86" r="3" fill="#38bdf8" />
+            <circle cx="304" cy="70" r="2.5" fill="#22d3ee" />
+            <circle cx="328" cy="168" r="2.5" fill="#93c5fd" />
+            <circle cx="84" cy="176" r="2" fill="#67e8f9" />
+          </motion.g>
+        </svg>
+      </div>
+    </div>
   );
 }
 
@@ -120,9 +209,7 @@ export default function HomePage() {
   return (
     <>
 
-      <main
-        className={`transition-opacity duration-700 `}
-      >
+      <main className="transition-opacity duration-700">
         <section id="home" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden px-4 sm:px-6">
           <GridBackground />
 
@@ -133,23 +220,23 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="relative z-10 flex flex-col items-center text-center px-2 sm:px-6 max-w-4xl mx-auto space-y-5 sm:space-y-6 pt-20 md:pt-0">
+          <div className="relative z-10 flex flex-col items-center text-center px-2 sm:px-6 max-w-5xl mx-auto space-y-6 sm:space-y-7 pt-20 md:pt-0">
 
-            <div className="flex gap-2 items-center border border-white/15 rounded-full px-4 py-1 bg-white/8 backdrop-blur-sm text-sm text-white/70 tracking-widest uppercase">
+            <div className="flex gap-2 items-center border border-white/15 rounded-full px-4 py-1.5 bg-white/8 backdrop-blur-md text-xs sm:text-sm text-white/70 tracking-[0.16em] uppercase">
               <span>VÉRTICE DIGITAL</span>
               <span className="text-white/30">·</span>
               <span>CyberSegurança</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-[var(--primary)] leading-tight tracking-tight">
+            <h1 className="text-[clamp(2.2rem,6vw,5rem)] font-bold text-[var(--primary)] leading-[1.04] tracking-tight max-w-4xl">
               Segurança Digital
               <br />
-              <span className="text-white bg-clip-text" >
+              <span className="text-white bg-clip-text">
                 que Vê o Invisível
               </span>
             </h1>
 
-            <p className="text-white/50 text-base sm:text-lg max-w-xl leading-relaxed">
+            <p className="text-white/60 text-base sm:text-lg max-w-2xl leading-relaxed">
               Protegemos sua empresa contra ameaças que outros não conseguem detectar — com inteligência, precisão e resposta em tempo real.
             </p>
 
@@ -185,26 +272,28 @@ export default function HomePage() {
           h-full
           shadow-[0_-50px_100px_rgba(5,4,7,0.85)]
         ">
-          <section className="flex flex-wrap gap-8 sm:gap-16 lg:gap-32 py-12 sm:py-16 px-4 sm:px-6 w-full justify-center border-b border-white/10">
-            {[
-              { end: 99.9, suffix: "%", decimals: 1, label: "Uptime garantido", animated: true },
-              { end: 500, prefix: "+", label: "Empresas protegidas", animated: true },
-              { value: "24/7", label: "Monitoramento ativo", animated: false },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-2">
-                {stat.animated ? (
-                  <AnimatedStatValue
-                    end={stat.end}
-                    prefix={stat.prefix}
-                    suffix={stat.suffix}
-                    decimals={stat.decimals}
-                  />
-                ) : (
-                  <span className="text-3xl font-bold text-white">{stat.value}</span>
-                )}
-                <span className="text-sm text-white/40 uppercase tracking-wider">{stat.label}</span>
-              </div>
-            ))}
+          <section className="w-full px-4 sm:px-6">
+            <div className="max-w-5xl mx-auto flex flex-wrap gap-4 sm:gap-6 py-12 sm:py-16 w-full justify-center border-b border-white/10">
+              {[
+                { end: 99.9, suffix: "%", decimals: 1, label: "Uptime garantido", animated: true },
+                { end: 500, prefix: "+", label: "Empresas protegidas", animated: true },
+                { value: "24/7", label: "Monitoramento ativo", animated: false },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col items-center gap-2 min-w-[210px] rounded-xl border border-white/10 bg-white/[0.03] px-6 py-5 backdrop-blur-sm">
+                  {stat.animated ? (
+                    <AnimatedStatValue
+                      end={stat.end}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      decimals={stat.decimals}
+                    />
+                  ) : (
+                    <span className="text-3xl font-bold text-white">{stat.value}</span>
+                  )}
+                  <span className="text-xs sm:text-sm text-white/45 uppercase tracking-wider">{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </section>
 
 
@@ -212,40 +301,25 @@ export default function HomePage() {
             <ServiceContainer />
           </section>
 
-          <section id="quem-somos" className="min-h-screen flex items-center bg-[#111024] mt-20 sm:mt-28 px-4 sm:px-6">
-            <div className="w-full max-w-[1400px] mx-auto py-12 sm:py-20">
+          <section id="quem-somos" className="min-h-screen flex items-center  mt-20 sm:mt-28 px-4 sm:px-6">
+            <div className="w-full max-w-5xl mx-auto py-12 sm:py-20">
               <div className="flex flex-col lg:flex-row items-end gap-6 lg:gap-10 border-b border-gray-200/20 pb-12 mb-12">
                 <div className="flex-1 flex flex-col gap-0">
                   <h2
-                    className="block font-bold uppercase tracking-tighter text-foreground text-right lg:pr-0"
-                    style={{ fontSize: "clamp(3.5rem, 8vw, 6.8rem)", lineHeight: 1.05 }}
+                    className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white uppercase"
+                    style={{ lineHeight: 1.25 }}
                   >
-                    Criando
+                    Confiança no mundo digital
                   </h2>
-                  <div className="flex flex-col mt-2">
-                    <h2
-                      className="block font-bold uppercase tracking-tighter text-muted-foreground text-left"
-                      style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.15 }}
-                    >
-                      {"Confian\u00e7a no"}
-                    </h2>
-                    <h2
-                      className="block font-bold uppercase tracking-tighter text-muted-foreground text-left"
-                      style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", lineHeight: 1.15 }}
-                    >
-                      Mundo Digital
-                    </h2>
-                  </div>
+                  <p className="mt-3 text-sm sm:text-base text-zinc-300/90 max-w-xl">
+                    Segurança cibernética com estratégia, clareza e resposta rápida.
+                  </p>
                 </div>
 
 
                 {/* Image */}
                 <div className="w-full lg:w-[420px] shrink-0">
-                  <div className="relative overflow-hidden rounded-2xl border border-white/10 p-1">
-                    <img src="/aboutus-preview.jpg"
-                      alt="" className="w-full h-[280px] lg:h-[300px] object-cover" />
-
-                  </div>
+                  <CyberSecurityGraphic />
                 </div>
               </div>
 
@@ -273,7 +347,7 @@ export default function HomePage() {
                 <div className="flex flex-col gap-6 w-full lg:w-1/3">
 
                   {/* Missão */}
-                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/20">
                     <span className="font-semibold uppercase tracking-widest text-muted-foreground">
                       Missão
                     </span>
@@ -285,7 +359,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Visão */}
-                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/20">
                     <span className="font-semibold uppercase tracking-widest text-muted-foreground">
                       Visão
                     </span>
@@ -297,7 +371,7 @@ export default function HomePage() {
                   </div>
 
                   {/* Valores */}
-                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+                  <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:border-white/20">
                     <span className="font-semibold uppercase tracking-widest text-muted-foreground">
                       Valores
                     </span>
@@ -320,14 +394,14 @@ export default function HomePage() {
         <section id="nossa-jornada">
           <TimelineSection />
         </section>
-       <section id="contato" className="py-12 sm:py-20 bg-[#111024] px-4 sm:px-6">
-  <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-8 justify-between items-center">
+        <section id="contato" className="py-12 sm:py-20 bg-[#111024] px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-10 justify-between items-start">
     <div className="px-0 sm:px-2 lg:px-8 w-full lg:w-1/2">
-      <h2 className="text-3xl sm:text-4xl font-bold text-white">ENTRE EM CONTATO</h2>
-      <p className="max-w-lg mt-1 text-gray-100/90">
+      <h2 className="text-3xl sm:text-4xl font-bold text-white uppercase">Entre em contato</h2>
+      <p className="max-w-lg mt-2 text-gray-100/75 leading-relaxed">
         Preencha as informações do formulário para fazer um orçamento ou tirar suas dúvidas e em breve faremos retorno.
       </p>
-      <img className="w-full max-w-sm sm:max-w-md mt-10 sm:mt-16" src="./contact-ilustration.svg" alt="Ilustração de contato" />
+      <img className="w-full max-w-[14rem] sm:max-w-xs mt-10 sm:mt-16" src="./contact-ilustration.svg" alt="Ilustração de contato" />
     </div>
 
     <form
@@ -339,22 +413,22 @@ export default function HomePage() {
         <input
           id="name"
           type="text"
-          placeholder="Name"
+          placeholder="Nome"
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-white/20"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/60"
         />
 
         {/* Email */}
         <input
           id="email"
           type="email"
-          placeholder="Email"
+          placeholder="E-mail"
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-white/20"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/60"
         />
 
         <input
@@ -364,18 +438,18 @@ export default function HomePage() {
           value={formData.phone}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-white/20"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/60"
         />
 
         {/* Message */}
         <textarea
           id="message"
-          placeholder="Message"
+          placeholder="Mensagem"
           rows={8}
           value={formData.message}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-white/20 resize-none"
+          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/60 resize-none"
         />
 
         {feedback && (
@@ -386,7 +460,7 @@ export default function HomePage() {
         <button
           type="submit"
           disabled={isSending}
-          className="w-full rounded-lg bg-white text-black font-semibold py-3 text-sm hover:bg-gray-100 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full rounded-lg bg-[var(--primary)] text-white font-semibold py-3 text-sm hover:brightness-110 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {isSending ? "Enviando..." : "Enviar"}
         </button>

@@ -119,7 +119,8 @@ function StyleSheet() {
       #service-container { height: auto; overflow: visible; }
 
       .services-title-wrapper {
-        width: min(100%, 400px);
+        width: 100%;
+        max-width: 64rem;
         margin: 0 auto;
         padding: 0 16px;
       }
@@ -204,7 +205,7 @@ function StyleSheet() {
 
       /* reduce gaps and heights at very small widths */
       @media (max-width: 600px) {
-        .services-title-wrapper { width: min(100%, 280px); }
+        .services-title-wrapper { width: 100%; }
         .scroll-container { height: 210vh; }
         .scroll-container.mobile-mode { height: auto; }
         .sticky-wrapper { width: min(92vw, 280px); }
