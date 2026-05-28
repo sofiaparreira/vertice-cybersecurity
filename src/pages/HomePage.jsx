@@ -394,7 +394,7 @@ export default function HomePage() {
         <section id="nossa-jornada">
           <TimelineSection />
         </section>
-        <section id="contato" className="py-12 sm:py-20 bg-[#111024] px-4 sm:px-6">
+        <section id="contato" className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-10 justify-between items-start">
     <div className="px-0 sm:px-2 lg:px-8 w-full lg:w-1/2">
       <h2 className="text-3xl sm:text-4xl font-bold text-white uppercase">Entre em contato</h2>
